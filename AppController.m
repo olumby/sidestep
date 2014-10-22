@@ -184,6 +184,14 @@ NSInteger GrowlSpam_TestConnection					= 0;
 	statusImageDirectInsecure = [NSImage imageNamed:@"direct-insecure-icon"];
 	statusImageDirectSecure = [NSImage imageNamed:@"direct-secure-icon"];
 	statusImageReroutedSecure = [NSImage imageNamed:@"rerouted-secure-icon"];
+    
+    // Enable template for Yosemite dark menu bar support
+    if (! (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9))
+    {
+        [statusImageDirectInsecure setTemplate:YES];
+        [statusImageDirectSecure setTemplate:YES];
+        [statusImageReroutedSecure setTemplate:YES];
+    }
 	
 	// Sets the default images in our NSStatusItem
 	[statusItem setImage:statusImageDirectSecure];
